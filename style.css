@@ -1,0 +1,90 @@
+/* Global reset and accessible defaults */
+:root {
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+	color: #18332f;
+	background-color: #f3f8f6;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	min-width: 320px;
+	min-height: 100%;
+}
+
+body {
+	min-width: 320px;
+	min-height: 100vh;
+	margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+	font: inherit;
+}
+
+button {
+	cursor: pointer;
+}
+
+img,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+/* Force body and html to clear default margins and hide scrollbars */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevents accidental scrollbars */
+}
+
+/* Fullscreen image specifications */
+.fullscreen-img {
+    width: 100vw !important;    /* Overrides the global max-width constraints */
+    max-width: none !important; /* Disables the global 100% max-width cap */
+    height: 100vh;
+    
+    /* Keeps image dimensions crisp and un-squished */
+    object-fit: cover; 
+    object-position: center;
+}
+/* Center container on top of your fullscreen view */
+.button-overlay {
+    position: absolute;
+    top: 63%;
+    left: 82.7%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Ensures the button floats above the image */
+}
+
+/* Transform the link into a sleek, clean button */
+.site-btn {
+    display: inline-block;
+    padding: 20px 35px;
+             /* Uses your off-white color */
+    text-decoration: none;     /* Removes the default underline */
+    font-weight: 0;
+  
+    border-radius: 8px;        /* Smooths the button edges */
+    
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Add subtle micro-animations when hovering or clicking */
+
+
+.site-btn:active {
+    transform: scale(0.97);     /* Creates a physical 'press down' effect */
+}
