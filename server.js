@@ -1,5 +1,6 @@
 require("dotenv").config();
 
+const path = require("path");
 const express = require("express");
 const nodemailer = require("nodemailer");
 
@@ -7,6 +8,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(express.static(__dirname));
+
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
@@ -17,6 +20,18 @@ app.use((req, res, next) => {
   }
 
   next();
+});
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+
+app.get("/password", (req, res) => {
+  res.sendFile(path.join(__dirname, "password.html"));
+});
+
+app.get("/password.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "password.html"));
 });
 
 const emailUser = process.env.EMAIL_USER || "yourgmail@gmail.com";
